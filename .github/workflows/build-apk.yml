@@ -36,11 +36,11 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build Debug APK
-        run: ./gradlew :androidApp:assembleDebug
+      - name: Build Optimized APK
+        run: ./gradlew :androidApp:assembleBenchmark
 
-      - name: Upload Open Tube Debug APK
+      - name: Upload Open Tube Optimized APK
         uses: actions/upload-artifact@v4
         with:
-          name: OpenTube-debug-apk
-          path: androidApp/build/outputs/apk/debug/*.apk
+          name: OpenTube-optimized-apk
+          path: androidApp/build/outputs/apk/benchmark/*.apk
