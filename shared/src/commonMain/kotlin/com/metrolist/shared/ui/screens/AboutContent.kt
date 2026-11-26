@@ -49,6 +49,10 @@ import com.metrolist.shared.generated.resources.credits_license_desc
 import com.metrolist.shared.generated.resources.credits_license_name
 import com.metrolist.shared.generated.resources.credits_lyrics_ui_services
 import com.metrolist.shared.generated.resources.credits_macos_developer
+import com.metrolist.shared.generated.resources.credits_maintainer_handle
+import com.metrolist.shared.generated.resources.credits_maintainer_name
+import com.metrolist.shared.generated.resources.credits_maintainer_role
+import com.metrolist.shared.generated.resources.credits_maintainer_section
 import com.metrolist.shared.generated.resources.credits_multiplatform_developer
 import com.metrolist.shared.generated.resources.credits_wearos_designer
 import com.metrolist.shared.generated.resources.credits_windows_developer
