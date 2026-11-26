@@ -250,7 +250,7 @@ sentry {
 android {
     namespace = "com.metrolist.android"
     compileSdk {
-        version = release(36)
+        version = release(37) { minorApiLevel = 2 }
     }
     ndkVersion = libs.versions.androidNdk.get()
 
@@ -263,7 +263,7 @@ android {
     defaultConfig {
         applicationId = "com.opentube.music"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 155
         versionName = appVersion
 
