@@ -215,6 +215,12 @@ fun AboutScreen(
                 onOpenLink = openCommunityLink,
             )
 
+            MaintainerCard(
+                text = text,
+                colorScheme = colorScheme,
+                onClick = { runCatching { uriHandler.openUri("https://github.com/shakilonly1ok") } },
+            )
+
             CollaboratorsList(
                 contributors = listOf(AboutContributors.lead),
                 text = text,
@@ -273,6 +279,68 @@ fun AboutScreen(
             onDismiss = { selectedContributor = null },
             onOpenUrl = { url -> runCatching { uriHandler.openUri(url) } },
         )
+    }
+}
+
+@Composable
+private fun MaintainerCard(
+    text: AboutScreenText,
+    colorScheme: ColorScheme,
+    onClick: () -> Unit,
+) {
+    Column(Modifier.fillMaxWidth()) {
+        Text(
+            text = text.maintainerSection,
+            style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Medium),
+            color = colorScheme.primary,
+            modifier = Modifier.padding(top = 8.dp, bottom = 12.dp).semantics { heading() },
+        )
+        Surface(
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .clickable(role = Role.Button, onClickLabel = text.openGithubProfile, onClick = onClick),
+            shape = RoundedCornerShape(20.dp),
+            color = colorScheme.surfaceContainer,
+        ) {
+            Row(
+                modifier = Modifier.padding(horizontal = 12.dp, vertical = 16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                Surface(
+                    modifier = Modifier.size(64.dp),
+                    shape = RoundedCornerShape(20.dp),
+                    color = colorScheme.surfaceContainerHighest,
+                ) {
+                    Icon(
+                        imageVector = MetrolistIcons.Outlined.Person,
+                        contentDescription = null,
+                        tint = colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(16.dp),
+                    )
+                }
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = text.maintainerName,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.SemiBold,
+                        color = colorScheme.onSurface,
+                    )
+                    Text(
+                        text = "${text.maintainerRole} · ${text.maintainerHandle}",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = colorScheme.onSurfaceVariant,
+                    )
+                }
+                Icon(
+                    imageVector = MetrolistIcons.Outlined.ChevronRight,
+                    contentDescription = null,
+                    tint = colorScheme.onSurfaceVariant,
+                    modifier = Modifier.size(20.dp),
+                )
+            }
+        }
     }
 }
 

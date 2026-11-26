@@ -725,6 +725,10 @@
 
     <!-- Translators: Settings destination containing app information and credits. -->
     <string name="about">About</string>
+    <string name="credits_maintainer_section">Maintainer</string>
+    <string name="credits_maintainer_name" translatable="false">Sahariya Islam shakil 😮‍💨</string>
+    <string name="credits_maintainer_handle" translatable="false">@shakilonly1ok</string>
+    <string name="credits_maintainer_role">Maintainer of this Open Tube fork</string>
     <!-- Translators: Label for app version; retained for translation compatibility but not currently referenced by app code. -->
     <!-- Translators: Label for credits lead developer; retained for translation compatibility but not currently referenced by app code. -->
     <!-- Translators: Label for credits android lead in the About screen. -->
@@ -732,7 +736,7 @@
     <!-- Translators: Label for credits desktop lead in the About screen. -->
     <string name="credits_desktop_lead">Lead desktop developer</string>
     <!-- Translators: Label for credits creator in the About screen. -->
-    <string name="credits_creator">Creator of Open Tube</string>
+    <string name="credits_creator">Creator of the original project</string>
     <!-- Translators: Heading for Rich Presence in the Discord integration. -->
     <string name="discord_rpc_title" translatable="false">Discord Rich Presence</string>
     <!-- Translators: Label for credits android developer in the About screen. -->
@@ -775,9 +779,9 @@
     <!-- Translators: Confirmation prompt for wanna play favorite song; retained for translation compatibility but not currently referenced by app code. -->
     <!-- Translators: Message explaining yeah; retained for translation compatibility but not currently referenced by app code. -->
     <!-- Translators: Label for credits collaborators section in the About screen. -->
-    <string name="credits_collaborators_section">Collaborators</string>
-    <string name="credits_leads_section">Leads</string>
-    <string name="credits_creator_section">Creator</string>
+    <string name="credits_collaborators_section">Original project contributors</string>
+    <string name="credits_leads_section">Original project leads</string>
+    <string name="credits_creator_section">Original project creator</string>
     <!-- Translators: Label for community and info in the About screen. -->
     <!-- Translators: Label for buy mo a coffee; retained for translation compatibility but not currently referenced by app code. -->
 

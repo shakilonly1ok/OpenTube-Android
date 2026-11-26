@@ -35,9 +35,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.metrolist.shared.generated.resources.Res
 import com.metrolist.shared.generated.resources.about
-import com.metrolist.shared.generated.resources.brand_discord
 import com.metrolist.shared.generated.resources.brand_github
-import com.metrolist.shared.generated.resources.brand_telegram
 import com.metrolist.shared.generated.resources.credits_android_designer
 import com.metrolist.shared.generated.resources.credits_android_developer
 import com.metrolist.shared.generated.resources.credits_android_lead
@@ -70,6 +68,10 @@ import org.jetbrains.compose.resources.stringResource as sharedStringResource
 fun rememberAboutScreenText(): AboutScreenText =
     AboutScreenText(
         title = sharedStringResource(Res.string.about),
+        maintainerSection = sharedStringResource(Res.string.credits_maintainer_section),
+        maintainerName = sharedStringResource(Res.string.credits_maintainer_name),
+        maintainerHandle = sharedStringResource(Res.string.credits_maintainer_handle),
+        maintainerRole = sharedStringResource(Res.string.credits_maintainer_role),
         creatorSection = sharedStringResource(Res.string.credits_creator_section),
         leadsSection = sharedStringResource(Res.string.credits_leads_section),
         collaborators = sharedStringResource(Res.string.credits_collaborators_section),
@@ -85,9 +87,8 @@ fun rememberAboutScreenText(): AboutScreenText =
         lyricsUiServicesRole = sharedStringResource(Res.string.credits_lyrics_ui_services),
         androidDesignerRole = sharedStringResource(Res.string.credits_android_designer),
         wearOsDesignerRole = sharedStringResource(Res.string.credits_wearos_designer),
-        discord = sharedStringResource(Res.string.brand_discord),
-        telegram = sharedStringResource(Res.string.brand_telegram),
         github = sharedStringResource(Res.string.brand_github),
+        openGithubProfile = sharedStringResource(Res.string.open_github_profile),
         license = sharedStringResource(Res.string.credits_license_name),
         licenseDescription = sharedStringResource(Res.string.credits_license_desc),
     )
@@ -230,8 +231,6 @@ object AboutContributors {
 }
 
 enum class AboutCommunityLinkKind {
-    DISCORD,
-    TELEGRAM,
     REPOSITORY,
     LICENSE,
 }
@@ -243,16 +242,18 @@ data class AboutCommunityLink(
 
 val aboutCommunityLinks: List<AboutCommunityLink> =
     listOf(
-        AboutCommunityLink(AboutCommunityLinkKind.DISCORD, "https://discord.com/invite/zrdbeRG2Mt"),
-        AboutCommunityLink(AboutCommunityLinkKind.TELEGRAM, "https://t.me/metrolistapp"),
-        AboutCommunityLink(AboutCommunityLinkKind.REPOSITORY, "https://github.com/MetrolistGroup/Metrolist"),
+        AboutCommunityLink(AboutCommunityLinkKind.REPOSITORY, "https://github.com/shakilonly1ok/OpenTube-Android"),
     )
 
 val aboutLicenseLink: AboutCommunityLink =
-    AboutCommunityLink(AboutCommunityLinkKind.LICENSE, "https://github.com/MetrolistGroup/Metrolist/blob/main/LICENSE")
+    AboutCommunityLink(AboutCommunityLinkKind.LICENSE, "https://github.com/shakilonly1ok/OpenTube-Android/blob/main/LICENSE")
 
 data class AboutScreenText(
     val title: String,
+    val maintainerSection: String,
+    val maintainerName: String,
+    val maintainerHandle: String,
+    val maintainerRole: String,
     val creatorSection: String,
     val leadsSection: String,
     val collaborators: String,
@@ -268,9 +269,8 @@ data class AboutScreenText(
     val lyricsUiServicesRole: String,
     val androidDesignerRole: String,
     val wearOsDesignerRole: String,
-    val discord: String,
-    val telegram: String,
     val github: String,
+    val openGithubProfile: String,
     val license: String,
     val licenseDescription: String,
 ) {
@@ -292,8 +292,6 @@ data class AboutScreenText(
 
     fun communityLabel(kind: AboutCommunityLinkKind): String =
         when (kind) {
-            AboutCommunityLinkKind.DISCORD -> discord
-            AboutCommunityLinkKind.TELEGRAM -> telegram
             AboutCommunityLinkKind.REPOSITORY -> github
             AboutCommunityLinkKind.LICENSE -> license
         }
@@ -308,13 +306,7 @@ internal fun CommunitySection(
         actions =
             aboutCommunityLinks.map { link ->
                 PlayerMenuAction(
-                    icon =
-                        when (link.kind) {
-                            AboutCommunityLinkKind.DISCORD -> MetrolistIconsBrand.Discord
-                            AboutCommunityLinkKind.TELEGRAM -> MetrolistIconsBrand.Telegram
-                            AboutCommunityLinkKind.REPOSITORY -> MetrolistIconsBrand.Github
-                            AboutCommunityLinkKind.LICENSE -> MetrolistIcons.Outlined.Info
-                        },
+                    icon = MetrolistIconsBrand.Github,
                     title = text.communityLabel(link.kind),
                     onClick = { onOpenLink(link) },
                 )
