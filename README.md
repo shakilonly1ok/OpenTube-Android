@@ -32,5 +32,5 @@
 
 Forked / adapted from the **MetroList** Android app.
 
-* **Repo:** [MetroList Android App](https://github.com/metrolist/metrolist)
+* **Repo:** [MetroList Android App]( https://github.com/metrolistgroup/metrolist
 ￼Enter
