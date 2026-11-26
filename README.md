@@ -1,71 +1,36 @@
-package com.opentube.ui.background
+# 🎵 OpenTube 👀
 
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
-import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Canvas
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
-import androidx.compose.ui.graphics.drawscope.scale
-import androidx.compose.ui.graphics.drawscope.translate
-import androidx.compose.ui.graphics.drawscope.withTransform
-import androidx.compose.ui.graphics.Color.Companion.Black
-import androidx.compose.ui.graphics.Color.Companion.Transparent
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.drawscope.DrawScope.Companion.DefaultBlendMode
-import androidx.compose.ui.unit.dp
-import kotlin.math.PI
-import kotlin.math.cos
-import kotlin.math.sin
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" alt="Status">
+  <img src="https://img.shields.io/badge/License-GPL--3.0-blue?style=for-the-badge" alt="License">
+  <img src="https://img.shields.io/badge/Platform-Android-orange?style=for-the-badge" alt="Platform">
+</p>
 
-@Composable
-fun ArtworkGlowBackground(
-    colors: List<Color>,
-    modifier: Modifier = Modifier,
-    isPlaying: Boolean = true,
-) {
-    val transition = rememberInfiniteTransition(label = "glow")
-    val animated by transition.animateFloat(
-        initialValue = 0f,
-        targetValue = (2 * PI).toFloat(),
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 14000, easing = LinearEasing),
-        ),
-        label = "phase",
-    )
-    val phase = if (isPlaying) animated else 0f
+**OpenTube** is a lightweight, open-source music app for Android built to stream and download YouTube Music seamlessly—ad-free 🆓.
 
-    Canvas(modifier) {
-        drawRect(Color(0xFF0B0B0D))
+---
 
-        colors.take(4).forEachIndexed { i, color ->
-            val speed = 0.6f + i * 0.25f
-            val cx = size.width * (0.5f + 0.35f * cos(phase * speed + i))
-            val cy = size.height * (0.35f + 0.25f * sin(phase * speed * 0.8f + i * 1.3f))
-            val radius = size.maxDimension * 0.7f
-            drawCircle(
-                brush = Brush.radialGradient(
-                    colors = listOf(color.copy(alpha = 0.7f), color.copy(alpha = 0f)),
-                    center = Offset(cx, cy),
-                    radius = radius,
-                ),
-                radius = radius,
-                center = Offset(cx, cy),
-            )
-        }
+## 🔥 Features
 
-        drawRect(
-            brush = Brush.verticalGradient(
-                colors = listOf(Transparent, Black.copy(alpha = 0.55f)),
-            ),
-        )
-    }
-}
+* 🎧 **Background Play:** Listen to YouTube Music in the background or with your screen off.
+* ⬇️ **Downloads:** Save tracks for offline listening anytime.
+* 🆓 **Ad-Free:** Enjoy uninterrupted playback with zero ads.
+* 📂 **Open Source:** Free, transparent, and open-source.
+
+---
+
+## 👨‍💻 Maintainer
+
+**Sahariya Islam Shakil**
+
+[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/share/18o4xJym5t/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/shakilonly1ok)
+
+---
+
+## 📌 Upstream / Base Repo
+
+Forked / adapted from the **MetroList** Android app.
+
+* **Repo:** [MetroList Android App](https://github.com/metrolist/metrolist)
+￼Enter
