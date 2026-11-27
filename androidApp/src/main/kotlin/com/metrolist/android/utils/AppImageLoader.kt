@@ -33,7 +33,7 @@ private const val MAX_REMOTE_ARTWORK_BYTES = 12L * 1024 * 1024
 fun createAppImageLoader(context: Context): ImageLoader {
     val appContext = context.applicationContext
     val maxImageCacheSize = Settings.shared.maxImageCacheSize
-    val memoryCacheRatio = 0.25
+    val memoryCacheRatio = 0.15
     val okHttpClient =
         sharedOkHttpClient
             .newBuilder()
