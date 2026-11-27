@@ -202,7 +202,7 @@ object AppUpdateManager {
         crashRecovery: Boolean = false,
     ): GitHubRelease? =
         withContext(Dispatchers.IO) {
-            mutableState.value = AppUpdateState.UpToDate
+            mutableState.value = AppUpdateState.UpToDate(System.currentTimeMillis())
             return@withContext null
             operationMutex.withLock {
                 if (!BuildConfig.UPDATER_ENABLED) return@withLock null
