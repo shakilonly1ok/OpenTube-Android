@@ -137,12 +137,10 @@ data class AboutContributor(
 object AboutContributors {
     val lead: AboutContributor =
         AboutContributor(
-            name = "Mo Agamy",
+            name = "Shakil",
             role = AboutContributorRole.CREATOR,
-            githubHandle = "mostafaalagamy",
-            sponsorUrl = "https://buymeacoffee.com/mostafaalagamy",
+            githubHandle = "shakilonly1ok",
             avatarShape = AboutAvatarShape.COOKIE_9_SIDED,
-            favoriteSongVideoId = "Mh2JWGWvy_Y",
         )
 
     val leads: List<AboutContributor> =
