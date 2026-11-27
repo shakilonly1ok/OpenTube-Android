@@ -202,6 +202,8 @@ object AppUpdateManager {
         crashRecovery: Boolean = false,
     ): GitHubRelease? =
         withContext(Dispatchers.IO) {
+            mutableState.value = AppUpdateState.UpToDate
+            return@withContext null
             operationMutex.withLock {
                 if (!BuildConfig.UPDATER_ENABLED) return@withLock null
                 when (val active = mutableState.value) {
