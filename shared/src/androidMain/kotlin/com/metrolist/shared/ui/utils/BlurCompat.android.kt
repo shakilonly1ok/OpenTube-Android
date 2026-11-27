@@ -17,7 +17,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-internal actual val renderEffectBlurSupported: Boolean = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+internal actual val renderEffectBlurSupported: Boolean = false // Disabled heavy RenderEffect blur for butter-smooth 60/120fps UI on low-end devices
 
 @Composable
 actual fun Modifier.queueVerticalBlur(
