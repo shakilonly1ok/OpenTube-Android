@@ -218,26 +218,8 @@ fun AboutScreen(
             CollaboratorsList(
                 contributors = listOf(AboutContributors.lead),
                 text = text,
-                title = text.creatorSection,
+                title = "Maintainer",
                 avatarSize = 64.dp,
-                colorScheme = colorScheme,
-                onContributorClick = { selectedContributor = it },
-                onContributorLongClick = onContributorLongClick,
-            )
-
-            CollaboratorsList(
-                contributors = AboutContributors.leads,
-                text = text,
-                title = text.leadsSection,
-                avatarSize = 64.dp,
-                colorScheme = colorScheme,
-                onContributorClick = { selectedContributor = it },
-                onContributorLongClick = onContributorLongClick,
-            )
-
-            CollaboratorsList(
-                contributors = AboutContributors.collaborators,
-                text = text,
                 colorScheme = colorScheme,
                 onContributorClick = { selectedContributor = it },
                 onContributorLongClick = onContributorLongClick,
